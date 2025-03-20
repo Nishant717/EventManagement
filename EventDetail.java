@@ -9,10 +9,24 @@ public class EventDetail {
         String event_name = event_input.nextLine();
         System.out.println("Please Enter Start Event Date YYYY-MM-DD");
         String event_start_date = event_input.nextLine();
-        LocalDate start_date = LocalDate.parse(event_start_date);
+        LocalDate start_date = null;
+        LocalDate end_date = null;
+        try {
+            start_date = LocalDate.parse(event_start_date);
+        } catch (Exception e)
+        {
+            System.out.println("Please enter valid date in given formate ");
+
+        }
         System.out.println("Please Enter End Event Date YYYY-MM-DD");
         String event_end_date = event_input.nextLine();
-        LocalDate end_date = LocalDate.parse(event_end_date);
+        try {
+            end_date = LocalDate.parse(event_end_date);
+        } catch (Exception e)
+        {
+            System.out.println("Please enter valid date in given formate ");
+
+        }
         if(start_date.isAfter(end_date))
         {
             System.out.println("Event end date can't be before start date");
